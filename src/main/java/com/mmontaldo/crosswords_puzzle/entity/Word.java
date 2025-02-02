@@ -5,6 +5,13 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Data
 @Entity
 @Table(name = "words")
 public class Word {
@@ -13,33 +20,11 @@ public class Word {
     private Integer id;
 
     private String word;
+    
+    private String description;
 
     @OneToMany(mappedBy = "word", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Crossword> crosswords;
 
-    // Getters and Setters
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getWord() {
-        return word;
-    }
-
-    public void setWord(String word) {
-        this.word = word;
-    }
-
-    public List<Crossword> getCrosswords() {
-        return crosswords;
-    }
-
-    public void setCrosswords(List<Crossword> crosswords) {
-        this.crosswords = crosswords;
-    }
 }

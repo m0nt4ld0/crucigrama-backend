@@ -4,6 +4,17 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.*;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "crosswords")
 public class Crossword {
@@ -16,8 +27,8 @@ public class Crossword {
     @JsonBackReference
     private Word word;
 
-    // Getters and Setters
-    public Word getWord() {
-        return word;
-    }
+    private Integer sequenceNumber;
+
+    private Integer isVword;
+
 }

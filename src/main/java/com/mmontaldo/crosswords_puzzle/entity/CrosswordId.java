@@ -12,5 +12,4 @@ public class CrosswordId implements Serializable {
     @Column(name = "id_crossword")
     private Integer idCrossword;
 
-    // Getters, Setters, hashCode, equals
 }

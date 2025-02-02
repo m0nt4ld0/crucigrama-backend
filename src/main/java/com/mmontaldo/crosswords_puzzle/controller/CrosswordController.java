@@ -6,14 +6,16 @@ import org.springframework.web.bind.annotation.*;
 import com.mmontaldo.crosswords_puzzle.entity.Word;
 import com.mmontaldo.crosswords_puzzle.service.CrosswordService;
 
+import lombok.AllArgsConstructor;
+
 import java.util.List;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/api/crosswords")
 public class CrosswordController {
 
-    @Autowired
-    private CrosswordService crosswordService;
+    private final CrosswordService crosswordService;
 
     @GetMapping("/{crosswordId}/words")
     public List<Word> getWordsByCrosswordId(@PathVariable Integer crosswordId) {

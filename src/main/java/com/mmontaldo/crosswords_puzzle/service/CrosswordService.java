@@ -10,16 +10,16 @@ import com.mmontaldo.crosswords_puzzle.entity.Word;
 import com.mmontaldo.crosswords_puzzle.repository.CrosswordRepository;
 import com.mmontaldo.crosswords_puzzle.repository.WordRepository;
 
+import lombok.AllArgsConstructor;
+
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor
 public class CrosswordService {
 
-    @Autowired
-    private CrosswordRepository crosswordRepository;
-
-    @Autowired
-    private WordRepository wordRepository;
+    private final CrosswordRepository crosswordRepository;
+    private final WordRepository wordRepository;
 
     public List<Word> getWordsByCrosswordId(Integer crosswordId) {
         List<Crossword> crosswords = crosswordRepository.findByIdIdCrossword(crosswordId);
