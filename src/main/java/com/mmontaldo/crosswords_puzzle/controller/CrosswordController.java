@@ -1,8 +1,10 @@
 package com.mmontaldo.crosswords_puzzle.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.mmontaldo.crosswords_puzzle.dto.CrosswordDTO;
 import com.mmontaldo.crosswords_puzzle.entity.Word;
 import com.mmontaldo.crosswords_puzzle.service.CrosswordService;
 
@@ -18,7 +20,9 @@ public class CrosswordController {
     private final CrosswordService crosswordService;
 
     @GetMapping("/{crosswordId}/words")
-    public List<Word> getWordsByCrosswordId(@PathVariable Integer crosswordId) {
-        return crosswordService.getWordsByCrosswordId(crosswordId);
+    public ResponseEntity<CrosswordDTO> getWordsByCrosswordId(@PathVariable Integer crosswordId) {
+        List<Word> words = crosswordService.getWordsByCrosswordId(crosswordId);
+        CrosswordDTO crosswordDTO = crosswordService.mapToDTO(words);
+        return ResponseEntity.ok(crosswordDTO);
     }
 }
