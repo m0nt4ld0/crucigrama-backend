@@ -3,6 +3,8 @@ package com.mmontaldo.crosswords_puzzle.entity;
 import jakarta.persistence.*;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "words")
 public class Word {
@@ -13,6 +15,7 @@ public class Word {
     private String word;
 
     @OneToMany(mappedBy = "word", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Crossword> crosswords;
 
     // Getters and Setters

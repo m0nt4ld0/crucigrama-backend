@@ -1,8 +1,11 @@
 package com.mmontaldo.crosswords_puzzle.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "crosswords")
 public class Crossword {
 
     @EmbeddedId
@@ -10,6 +13,7 @@ public class Crossword {
 
     @ManyToOne
     @JoinColumn(name = "word_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @JsonBackReference
     private Word word;
 
     // Getters and Setters

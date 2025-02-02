@@ -22,12 +22,9 @@ public class CrosswordService {
     private WordRepository wordRepository;
 
     public List<Word> getWordsByCrosswordId(Integer crosswordId) {
-        // Buscar los crosswords con el id_crossword proporcionado
         List<Crossword> crosswords = crosswordRepository.findByIdIdCrossword(crosswordId);
-
-        // Extraer las palabras asociadas a esos crosswords
         return crosswords.stream()
-                         .map(Crossword::getWord)  // Obtener la palabra asociada
+                         .map(Crossword::getWord)
                          .collect(Collectors.toList());
     }
 }
