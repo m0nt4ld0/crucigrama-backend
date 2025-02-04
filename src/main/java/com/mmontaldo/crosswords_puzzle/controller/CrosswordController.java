@@ -18,10 +18,12 @@ public class CrosswordController {
 
     private final CrosswordService crosswordService;
 
-    @GetMapping("/{crosswordId}/words")
+    @GetMapping("/getById/{crosswordId}")
     public ResponseEntity<CrosswordDTO> getWordsByCrosswordId(@PathVariable Integer crosswordId) {
         List<Word> words = crosswordService.getWordsByCrosswordId(crosswordId);
         CrosswordDTO crosswordDTO = crosswordService.mapToDTO(words);
         return ResponseEntity.ok(crosswordDTO);
     }
+
+    // ToDo: Get para conseguir significado de palabra por id de palabra
 }
