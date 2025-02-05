@@ -1,6 +1,9 @@
 # crucigrama-backend
-REST API for my (crosswords puzzle generator)[https://github.com/m0nt4ld0/crucigrama] project. Made with Java 21, Spring Boot and a lots of love 🫶
-This API is now available on render https://crucigrama-backend.onrender.com/api/crosswords
+REST API for my [crosswords puzzle generator](https://github.com/m0nt4ld0/crucigrama) project. 
+
+Made with Java 21, Spring Boot and a lots of love 🫶
+
+This API is now available on [Render](https://crucigrama-backend.onrender.com/api/crosswords/getById/1)
 
 ## Endpoints
 
@@ -8,10 +11,11 @@ This API is now available on render https://crucigrama-backend.onrender.com/api/
 Outputs a JSON of the desired crossword with the following structure
 
 ```bash
-**GET** https://crucigrama-backend.onrender.com/api/crosswords/getById/{crosswordId}
+https://crucigrama-backend.onrender.com/api/crosswords/getById/{crosswordId}
 ```
 
 ### Response example:
+For crosswordId = 1 the output is
 ```json
 {
   "vword": "Freud",
