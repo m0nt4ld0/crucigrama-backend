@@ -15,7 +15,7 @@ https://crucigrama-backend.onrender.com/api/crosswords/getById/{crosswordId}
 ```
 
 ### Response example:
-For crosswordId = 1 the output is
+For [crosswordId = 1](https://crucigrama-backend.onrender.com/api/crosswords/getById/1) the output is
 ```json
 {
   "vword": "Freud",
